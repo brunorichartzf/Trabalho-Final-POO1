@@ -1,15 +1,20 @@
 import java.util.HashMap;
 
 public class BlocoDeNotas{
-    HashMap<Integer,Nota> BlocoDeNotas = new HashMap<>();
+    HashMap<String,Nota> BlocoDeNotas = new HashMap<>();
     
-    public void Anotar(int id, String titulo, String texto){
-        Nota nota = new Nota(id, texto, titulo);
-        BlocoDeNotas.put(nota.getId(),nota);
+    public void Anotar(String titulo, String texto){
+        Nota nota = new Nota(titulo, texto);
+        BlocoDeNotas.put(titulo,nota);
     }
 
-    public String getNota(int id){
-        return BlocoDeNotas.get(id).getTitulo() + BlocoDeNotas.get(id).getTexto();
+    public void Apagar(int id){
+        BlocoDeNotas.get(id).Apagar(BlocoDeNotas.get(id).getPath());
+        BlocoDeNotas.remove(id);
+    }
+
+    public String getNota(String titulo){
+        return BlocoDeNotas.get(titulo).getTitulo() + BlocoDeNotas.get(titulo).getTexto();
     }
 
 }

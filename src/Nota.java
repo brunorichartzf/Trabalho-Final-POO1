@@ -1,17 +1,33 @@
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 public class Nota {
     private String texto;
     private String titulo;
-    private int id; //ID é temporário até eu entender como usar a classe de data.
+    private String path;
 
-    public Nota(int id, String titulo, String texto){
+    public Nota(String titulo, String texto){
         this.texto = texto;
         this.titulo = titulo;
-        this.id = id;
+
+        try{
+            Files.write(Paths.get("resources/"+titulo+".txt"), texto.getBytes());
+            this.path = "resources/"+titulo+".txt";
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 
-    public int getId() {
-        return id;
+    public void Apagar(String path){
+        Path p1 = Paths.get(path);
+        try{
+            Files.delete(p1);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
+
 
     public String getTexto() {
         return texto;
@@ -21,4 +37,5 @@ public class Nota {
         return titulo;
     }
 
+    public String getPath() {return path;}
 }
