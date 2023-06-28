@@ -13,6 +13,8 @@ public class Main {
         //int inputao = leitor.nextInt();
         //int id = inputao;
         //Bloco.Apagar(inputao);
-        System.out.println(Bloco.BlocoDeNotas.isEmpty());
+        //System.out.println(Bloco.BlocoDeNotas.isEmpty());
+        BlocoDeNotas.salvar();
+        BlocoDeNotas.mostrar();
     }
 }
