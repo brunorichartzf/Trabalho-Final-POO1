@@ -57,7 +57,7 @@ public class Main {
             default:
             break;
         }
-
+        input.close();
         }
     }
 }
