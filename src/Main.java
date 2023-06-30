@@ -53,11 +53,11 @@ public class Main {
             case "99":
             continua = false;
             Bloco.ApagaTudo();
+            input.close();
             break;
             default:
             break;
         }
-        input.close();
         }
     }
 }
