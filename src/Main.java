@@ -3,6 +3,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner leitor = new Scanner(System.in);
         BlocoDeNotas Bloco = new BlocoDeNotas();
+
         System.out.print("Digite o título da primeira nota: ");
         String input = leitor.nextLine();
         String tit = input;
