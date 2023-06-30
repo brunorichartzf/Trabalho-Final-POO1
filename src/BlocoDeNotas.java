@@ -17,8 +17,22 @@ public class BlocoDeNotas{
     }
 
     public void Apagar(String titulo){
-        BlocoDeNotas.get(titulo).Apagar(BlocoDeNotas.get(titulo).getPath());
-        BlocoDeNotas.remove(titulo);
+        if (BlocoDeNotas.get(titulo) == null) {
+            System.out.println("Não há uma nota com esse título");
+        }else{
+            BlocoDeNotas.get(titulo).Apagar(BlocoDeNotas.get(titulo).getPath());
+            BlocoDeNotas.remove(titulo);
+        }
+
+    }
+
+    public void Ler(String titulo){
+        if (BlocoDeNotas.get(titulo) == null) {
+            System.out.println("Não há uma nota com esse título");
+        }else{
+            System.out.println("\nTítulo: "+ titulo+"\n\nConteúdo:\n"+ BlocoDeNotas.get(titulo).getTexto());
+        }
+
     }
 
     public String getTitulo(String titulo){
@@ -29,7 +43,7 @@ public class BlocoDeNotas{
         return BlocoDeNotas.get(titulo).getTexto();
     }
 
-    public void ApagaTudo(){
+    public static void ApagaTudo(){
 
     for (String name : BlocoDeNotas.keySet()) {
         try{

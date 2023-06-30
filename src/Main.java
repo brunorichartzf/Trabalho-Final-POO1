@@ -9,7 +9,7 @@ public class Main {
         String tit = "";
         String text = "";
 
-        while(continua == true){
+        while(continua){
             System.out.println("Bloco de Notas\n-----------------\n"+
         "1 - Adicionar Nota\n2 - Ler Nota\n3 - Apagar Nota\n"+
         "4 - Listar Notas\n99 - Sair\nSelecione uma opção\n"
@@ -22,13 +22,13 @@ public class Main {
                 System.out.println("Digite o conteúdo da nova nota: ");
                 text = input.nextLine();
                 Bloco.Anotar(tit, text);
-                
+
             break;
             case "2":
                 System.out.println("Digite o título da nota a ser lida: ");
                 Bloco.mostrar();
                 tit = input.nextLine();
-                System.out.println("\nTítulo: "+Bloco.getTitulo(tit)+"\n\nConteúdo:\n"+Bloco.getTexto(tit));
+                Bloco.Ler(tit);
                 System.out.println("\nAperte ENTER para voltar.");
                 input.nextLine();
 
@@ -44,7 +44,7 @@ public class Main {
 
             break;
             case "4":
-            System.out.println("Notas encontrada:\n\n");
+            System.out.println("Notas encontradas:\n\n");
             Bloco.mostrar();
             System.out.println("\nAperte ENTER para voltar.");
             input.nextLine();
@@ -52,7 +52,7 @@ public class Main {
             break;
             case "99":
             continua = false;
-            Bloco.ApagaTudo();
+            BlocoDeNotas.ApagaTudo();
             input.close();
             break;
             default:
