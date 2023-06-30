@@ -21,15 +21,15 @@ public class BlocoDeNotas{
         BlocoDeNotas.remove(titulo);
     }
 
-    public String getNota(String titulo){
-        return BlocoDeNotas.get(titulo).getTitulo() + BlocoDeNotas.get(titulo).getTexto();
+    public String getTitulo(String titulo){
+        return BlocoDeNotas.get(titulo).getTitulo();
     }
 
     public String getTexto(String titulo){
         return BlocoDeNotas.get(titulo).getTexto();
     }
 
-    public static void ApagaTudo(){
+    public void ApagaTudo(){
 
     for (String name : BlocoDeNotas.keySet()) {
         try{
@@ -41,7 +41,7 @@ public class BlocoDeNotas{
         BlocoDeNotas.clear();
     }
 
-    public static void mostrar() {
+    public void mostrar() {
         for (String name : BlocoDeNotas.keySet()) {
             System.out.println(name);
         }
