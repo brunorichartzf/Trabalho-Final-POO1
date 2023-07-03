@@ -1,6 +1,11 @@
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.HashMap;
+import java.util.Scanner;
+import java.util.Set;
 
 public class BlocoDeNotas{
     static HashMap<String,Nota> BlocoDeNotas = new HashMap<>();
@@ -35,6 +40,32 @@ public class BlocoDeNotas{
 
     }
 
+    public static void salvar(){
+        try{
+            BufferedWriter a = new BufferedWriter(new FileWriter("resources/data/hashmap.txt"));
+            Set<String> keys = BlocoDeNotas.keySet();
+            for(String key: keys) {
+                a.write(key+" "+BlocoDeNotas.get(key).getTexto());
+                a.newLine();
+            }
+            a.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public static void carregar(){
+        try{
+            Scanner scan = new Scanner(new File("resources/data/hashmap.txt"));
+            while(scan.hasNextLine()) {
+                String[] entry = scan.nextLine().split(" ");
+                Nota nota = new Nota(entry[0], entry[1]);
+                BlocoDeNotas.put(entry[0], nota);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
     public String getTitulo(String titulo){
         return BlocoDeNotas.get(titulo).getTitulo();
     }

@@ -3,11 +3,12 @@ public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         BlocoDeNotas Bloco = new BlocoDeNotas();
+        BlocoDeNotas.carregar();
         
         Boolean continua = true;
-        String opcao = "";
-        String tit = "";
-        String text = "";
+        String opcao;
+        String tit;
+        String text;
 
         while(continua){
             System.out.println("Bloco de Notas\n-----------------\n"+
@@ -22,6 +23,7 @@ public class Main {
                 System.out.println("Digite o conteúdo da nova nota: ");
                 text = input.nextLine();
                 Bloco.Anotar(tit, text);
+                BlocoDeNotas.salvar();
 
             break;
             case "2":
@@ -52,7 +54,6 @@ public class Main {
             break;
             case "99":
             continua = false;
-            BlocoDeNotas.ApagaTudo();
             input.close();
             break;
             default:
