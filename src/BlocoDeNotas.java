@@ -40,7 +40,7 @@ public class BlocoDeNotas{
 
     }
 
-    public static void salvar(){
+    public static void Salvar(){
         try{
             BufferedWriter a = new BufferedWriter(new FileWriter("resources/data/hashmap.txt"));
             Set<String> keys = BlocoDeNotas.keySet();
@@ -54,7 +54,7 @@ public class BlocoDeNotas{
         }
     }
 
-    public static void carregar(){
+    public static void Carregar(){
         try{
             Scanner scan = new Scanner(new File("resources/data/hashmap.txt"));
             while(scan.hasNextLine()) {
@@ -65,9 +65,6 @@ public class BlocoDeNotas{
         }catch (Exception e){
             e.printStackTrace();
         }
-    }
-    public String getTitulo(String titulo){
-        return BlocoDeNotas.get(titulo).getTitulo();
     }
 
     public String getTexto(String titulo){
@@ -86,13 +83,13 @@ public class BlocoDeNotas{
         BlocoDeNotas.clear();
     }
 
-    public void mostrar() {
+    public void Mostrar() {
         for (String name : BlocoDeNotas.keySet()) {
             System.out.println(name);
         }
     }
 
-    public boolean vazio(){
+    public boolean Vazio(){
         return BlocoDeNotas.isEmpty();
     }
 }

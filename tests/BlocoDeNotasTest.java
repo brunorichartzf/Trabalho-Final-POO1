@@ -1,7 +1,5 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class BlocoDeNotasTest {
@@ -20,7 +18,7 @@ public class BlocoDeNotasTest {
         BlocoDeNotas.ApagaTudo();
         BlocoDeNotas Bloco = new BlocoDeNotas();
         Bloco.Anotar("","");
-        assertTrue(Bloco.vazio(), "Notas sem título não podem ser criadas");
+        assertTrue(Bloco.Vazio(), "Notas sem título não podem ser criadas");
 
     }
 

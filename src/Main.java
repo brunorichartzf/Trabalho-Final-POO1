@@ -3,7 +3,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         BlocoDeNotas Bloco = new BlocoDeNotas();
-        BlocoDeNotas.carregar();
+        BlocoDeNotas.Carregar();
         
         Boolean continua = true;
         String opcao;
@@ -23,12 +23,12 @@ public class Main {
                 System.out.println("Digite o conteúdo da nova nota: ");
                 text = input.nextLine();
                 Bloco.Anotar(tit, text);
-                BlocoDeNotas.salvar();
+                BlocoDeNotas.Salvar();
 
             break;
             case "2":
                 System.out.println("Digite o título da nota a ser lida: ");
-                Bloco.mostrar();
+                Bloco.Mostrar();
                 tit = input.nextLine();
                 Bloco.Ler(tit);
                 System.out.println("\nAperte ENTER para voltar.");
@@ -37,17 +37,18 @@ public class Main {
             break;
             case "3":
             System.out.println("Digite o título da nota a ser excluída: ");
-            Bloco.mostrar();
+            Bloco.Mostrar();
             tit = input.nextLine();
             System.out.println("\nApagando...\n");
             Bloco.Apagar(tit);
+            BlocoDeNotas.Salvar();
             System.out.println("\nAperte ENTER para voltar.");
             input.nextLine();
 
             break;
             case "4":
             System.out.println("Notas encontradas:\n\n");
-            Bloco.mostrar();
+            Bloco.Mostrar();
             System.out.println("\nAperte ENTER para voltar.");
             input.nextLine();
 
