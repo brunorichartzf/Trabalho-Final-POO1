@@ -34,9 +34,5 @@ public class Nota {
         return texto;
     }
 
-    public String getTitulo() {
-        return titulo;
-    }
-
     public String getPath() {return path;}
 }
